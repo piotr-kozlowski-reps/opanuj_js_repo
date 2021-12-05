@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link href="https://unpkg.com/tailwindcss@1.0.4/dist/tailwind.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="./style.css">
+        <!-- <script src="https://cdn.jsdelivr.net/npm/vue@2.6.11"></script> -->
+        <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+</head>
+
+<body class="h-screen overflow-hidden" style="background: #edf2f7;">
+  <div id="app">
+
+    
+  <div class="flex items-center justify-center">
+    <div class="m-10 mx-auto p-16 sm:p-24 lg:p-48 bg-gray-200">
+
+      <transition name="fade">
+        <app-carrousel :carouselitem="chosenCarouselItem" @prevbutton="prevButton" @nextbutton="nextButton"></app-carrousel>
+      </transition>
+      
+  
+
+      <div class="flex items-center pt-5 justify-between">
+        <button @click="goToCarouselItem(0)" class="px-2 opacity-50 hover:opacity-100 focus:opacity-100" :class="isCurrentActive(0) ? 'opacity-100' : 'opacity-50'"><img class="w-full" src="./img/kickstarter-seeklogo.com.svg" alt="" style="max-height: 60px;"></button>
+        <button @click="goToCarouselItem(1)" class="px-2 hover:opacity-100 focus:opacity-100" :class="isCurrentActive(1) ? 'opacity-100' : 'opacity-50'"><img class="w-full" src="./img/slack-technologies-seeklogo.com.svg" alt="" style="max-height: 130px;"></button>
+        <button @click="goToCarouselItem(2)" class="px-2 hover:opacity-100 focus:opacity-100" :class="isCurrentActive(2) ? 'opacity-100' : 'opacity-50'"><img class="w-full" src="./img/glossier-seeklogo.com.svg" alt="" style="max-height: 60px;"></button>
+        <button @click="goToCarouselItem(3)" class="px-2 hover:opacity-100 focus:opacity-100" :class="isCurrentActive(3) ? 'opacity-100' : 'opacity-50'"><img class="w-full" src="./img/240615.svg" alt="" style="max-height: 60px;"></button>
+        <button @click="goToCarouselItem(4)" class="px-2 hover:opacity-100 focus:opacity-100" :class="isCurrentActive(4) ? 'opacity-100' : 'opacity-50'"><img class="w-full" src="./img/device-camera-svgrepo-com.svg" alt="" style="max-height: 60px;"></button>
+      </div>
+      </div>
+    </div>
+
+
+  </div>
+
+  <script src="./index.js"></script>
+</body>
+
+</html>

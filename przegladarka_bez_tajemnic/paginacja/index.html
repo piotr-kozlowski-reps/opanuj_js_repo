@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Paginacja</title>
+    <link
+      href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css"
+    />
+    <link rel="stylesheet" href="./style.css">
+  </head>
+  <body class="bg-gray-900">
+    <div class="w-full max-w-screen-xl mx-auto p-6">
+      <div class="relative rounded overflow-hidden mb-8">
+        <div class="p-4 bg-grey-lighter py-8">
+          <div
+            class="bg-white mx-auto max-w-sm shadow-lg rounded-lg overflow-hidden"
+          >
+            <div class="sm:flex sm:items-center px-2 py-4">
+              <div class="flex-grow">
+                <h3 class="font-normal px-1 py-3 leading-tight font-bold border-b border-dashed"> Lista kontaktów </h3>
+                <div class="w-full" id="list_items">
+
+                  <div class="flex cursor-pointer my-1 hover:bg-blue-lightest rounded">
+                    <div class="w-4/5 h-10 py-3 px-1">
+                      <p class="hover:text-blue-dark">Peter Petrelli</p>
+                    </div>
+                  </div>
+
+                  <div
+                    class="flex cursor-pointer my-1 hover:bg-blue-lightest rounded"
+                  >
+                    <div class="w-4/5 h-10 py-3 px-1">
+                      <p class="hover:text-blue-dark">Claire Bennet</p>
+                    </div>
+                  </div>
+                  <div
+                    class="flex cursor-pointer my-1 hover:bg-blue-lightest rounded"
+                  >
+                    <div class="w-4/5 h-10 py-3 px-1">
+                      <p class="hover:text-blue-dark">Hiro Nakamura</p>
+                    </div>
+                  </div>
+                  <div
+                    class="flex cursor-pointer my-1 hover:bg-blue-lightest rounded"
+                  >
+                    <div class="w-4/5 h-10 py-3 px-1">
+                      <p class="hover:text-blue-dark">Nathan Petrelli</p>
+                    </div>
+                  </div>
+                  <div
+                    class="flex my-1 cursor-pointer hover:bg-blue-lightest rounded"
+                  >
+                    <div class="w-4/5  h-10 py-3 px-1">
+                      <p class="hover:text-blue-dark">Sylar</p>
+                    </div>
+                  </div>
+                  <div
+                    class="flex my-1 cursor-pointer hover:bg-blue-lightest rounded"
+                  >
+                    <div class="w-4/5  h-10 py-3 px-1">
+                      <p class="hover:text-blue-dark">Niki Sanders</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="bg-grey-light px-2 py-4 flex justify-center">
+              <div class="pagination">
+                <ul class="flex pl-0 list-none rounded my-2">
+
+                  <li class="relative block py-2 px-3 leading-tight bg-white border border-gray-300 text-blue-700 border-r-0 ml-0 rounded-l hover:bg-gray-200" id="previous">
+                    <a class="page-link" href="#">Previous</a>
+                  </li>
+
+                  <li class="relative block py-2 px-3 leading-tight bg-white border border-gray-300 text-blue-700 border-r-0 hover:bg-gray-200" id="one">
+                    <a class="page-link" href="#">1</a>
+                  </li>
+
+                  <li class="relative block py-2 px-3 leading-tight bg-white border border-gray-300 text-blue-700 border-r-0 hover:bg-gray-200" id="two">
+                    <a class="page-link" href="#">2</a>
+                  </li>
+
+                  <li class="relative block py-2 px-3 leading-tight bg-white border border-gray-300 text-blue-700 border-r-0 hover:bg-gray-200" id="three">
+                    <a class="page-link" href="#">3</a>
+                  </li>
+
+                  <li class="relative block py-2 px-3 leading-tight bg-white border border-gray-300 text-blue-700 rounded-r hover:bg-gray-200" id="next">
+                    <a class="page-link" href="#">Next</a>
+                  </li>
+
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/js/all.min.js"></script>
+    <script src="./index.js"></script>
+  </body>
+</html>

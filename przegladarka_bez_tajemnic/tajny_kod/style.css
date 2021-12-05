@@ -1,0 +1,65 @@
+body {
+    background: #eaeaea;
+  }
+  
+  * {
+    font-family: Lato;
+    box-sizing: border-box;
+  }
+  
+  .wrapper {
+    background-image: url('https://i.pinimg.com/originals/a0/44/5a/a0445a0e12f28a692e91139cc140812c.jpg');
+    background-size: cover;
+    border-radius: 5px;
+    border: 2px solid #333;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .keyboard__button {
+    width: 50px;
+    height: 50px;
+    margin: 5px;
+    background: #333;
+    color: white;
+    border-radius: 5px;
+    border: none;
+  }
+  
+  .keyboard__button:hover {
+    background: #777;
+  }
+  
+  .keyboard__button--reset {
+    background: darkred;
+  }
+  
+  .keyboard__button--save {
+    background: darkgreen;
+  }
+  
+  .keyboard__button--reset:hover {
+    background: red;
+  }
+  
+  .keyboard__button--save:hover {
+    background: green;
+  }
+  
+  .display {
+    border-radius: 5px;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+    border-top: 2px solid #333;
+    color: #333;
+    display: inline-block;
+    margin-top: 5px;
+    padding: 10px;
+    width: 100%;
+    text-align: center;
+    background: rgb(34,193,195);
+    background: linear-gradient(0deg, rgba(34,193,195,1) 0%, rgba(136,225,241,1) 100%);
+    flex-grow: 1;
+  }

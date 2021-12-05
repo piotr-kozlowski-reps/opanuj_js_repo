@@ -1,0 +1,15 @@
+h1, h2 {
+    font-family: Lato;
+  }
+
+  .member{
+    cursor: pointer;
+  }
+
+  .member:hover{
+    font-weight: 600;
+  }
+
+  .member-clicked{
+    background-color: #eee;
+  }

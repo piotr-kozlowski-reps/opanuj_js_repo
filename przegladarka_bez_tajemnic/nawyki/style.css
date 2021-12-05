@@ -1,0 +1,371 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    font-family: 'Raleway', sans-serif;
+    line-height: 1.4;
+    background: #eee;
+}
+
+p{
+    font-weight: bold;
+    font-size: 0.75rem;
+}
+
+.container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+    background: #eee;
+}
+
+
+
+
+
+
+/* form */
+
+#form{
+    width: 300px;
+    background: #fff;
+    padding: 1rem;
+    box-shadow: 0 0 10px #ccc;
+    border-radius: 3px;
+}
+
+#form input{
+    width: 100%;
+    padding: .25rem;
+    border: 1px solid #eee;
+    border-radius: 2px;
+    margin-bottom: 1rem;
+}
+
+#form input:focus{
+    border: 1px solid #eee;
+}
+
+button{
+    cursor: pointer;
+    border: 1px solid #ddd;
+    padding: .25rem;
+    border-radius: 5px;
+    width: 100%;
+    font-weight: bold;
+    color: #333;
+}
+
+button:hover{
+    background: #ccc;
+    color: #fff;
+}
+
+
+
+
+
+
+/* calendar */
+
+#calendar{
+    width: 100%;
+    height: 700px;
+
+    display: flex;
+    flex-direction: column;
+    background: #fff;
+    padding: 1rem;
+    box-shadow: 0 0 10px #ccc;
+    border-radius: 3px;
+}
+
+#calendar .calendar-title{
+    margin-left: 34px;
+    display: flex;
+    flex-direction: column;
+}
+
+#calendar .calendar-title .calendar-title-container{
+    display: flex;
+}
+
+#calendar .calendar-title .close{
+    margin-top: .75rem;
+    margin-left: 1rem;
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    border: 2px solid #ccc;
+}
+
+#calendar .nawyk_title{
+    font-size: 1rem;
+}
+
+#calendar .nawyk_title + i{
+    font-size: 1rem;
+    margin-left: .5rem;
+    color: #ccc;
+}
+
+#calendar .nawyk_title + i:hover{
+    font-size: 1rem;
+    margin-left: .5rem;
+    color: #333;
+}
+
+.all-days{
+    height: 560px;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+#calendar .border{
+    border-bottom: 2px solid #333;
+    width: 40%;
+    padding: .1rem 0;
+}
+
+#calendar .calendar-tabs{
+    margin-top: .75rem;
+    display: flex;
+}
+
+#previous > i,
+#next> i{
+    font-size: 1.5rem;
+    text-align: center;
+    padding-right: .5rem;
+    padding-left: .3rem;
+    padding-top: .4rem;
+    color: #ccc;
+}
+
+#previous > i:hover,
+#next > i:hover{
+    color: #333;
+}
+
+#calendar .calendar-tabs .month{
+    width: 100%;
+    margin: 0 .25rem;
+}
+
+#previous,
+#next {
+    width: 30px;
+}
+
+#month2{
+    margin: 0 1.25rem;
+}
+
+.month-name{
+    padding: 0.5rem;
+    background: #666;
+    color: #fff;
+    height: 45px;
+    margin-bottom: 10px;
+    /* margin-right: 10px; */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.month-name .month-title,
+.day-info{
+    font-weight: 500;
+    font-size: 1.1rem;
+}
+
+.month-name .month-numbers{
+    /* padding-top: 9%; */
+    margin-top: 20px;
+    font-weight: 700;
+    font-size: 0.75rem;
+
+}
+
+.day-every{
+    padding: 0.5rem;
+    background: #eee;
+    color: #333;
+    height: 45px;
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-right: 6px;
+}
+
+.day-every-resume{
+    padding: 0.5rem;
+    background: #ddd;
+    color: #333;
+    /* height: 45px; */
+    margin-bottom: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content:flex-start;
+    align-items: flex-start;
+    margin-right: 6px;
+    border-top: 2px solid #333;
+}
+
+.day-every .day-name{
+    padding-left: .25rem;
+    font-size: .9rem;
+    color: rgb(26, 26, 26);
+}
+
+.nawyki-resume{
+    padding-left: .5rem;
+    font-size: .8rem;
+    color: #333;
+}
+
+.nawyki-resume-green{
+    padding-left: .5rem;
+    font-weight: 600;
+    color: rgb(37, 206, 22);
+}
+
+.nawyki-resume-red{
+    padding-left: .5rem;
+    font-weight: 600;
+    color: rgb(207, 17, 17);
+}
+
+.day-every .day-nawyki-neutral{
+    /* background-color: #666; */
+    cursor: pointer;
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    border: 2px dotted #999;
+}
+
+
+.day-every .day-nawyki-on{
+    background-color: rgb(37, 206, 22);
+    cursor: pointer;
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+}
+
+.day-every .day-nawyki-off{
+    background-color: rgb(207, 17, 17);
+    cursor: pointer;
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+}
+
+
+
+
+/*  custom scroll */
+::-webkit-scrollbar{
+    /* margin-right: 5px; */
+    width: 10px;
+    /* padding: 5px; */
+}
+
+::-webkit-scrollbar-track{
+    background: #eee;
+}
+
+::-webkit-scrollbar-thumb{
+    background: #ccc;
+}
+
+::-webkit-scrollbar-thumb:hover{
+    background: #666;
+}
+
+
+
+
+/* modal */
+.modal{
+    position: fixed;
+    top: 10%;
+    padding: 40px 50px;
+    border-radius: 5px;
+    background-color: #fff;
+    z-index: 60000;
+    width: 400px;
+    min-height: 100px;
+    display: none;
+    left: 50%;
+    margin-left: -200px;
+    max-height: 80%;
+    box-sizing: border-box;
+}
+
+.modal-container{
+    display: flex;
+    justify-content: space-around;
+}
+
+.modal > p{
+    margin-bottom: 20px;
+}
+
+.modal.on{
+    display: block;
+}
+
+.modal-js-overlay {
+    background: #444;
+    opacity: .8;
+    position: fixed;
+    top: 0px;
+    width: 100%;
+    height: 100%;
+    z-index: 20000;
+    left: 0px;
+}
+
+.modal-js-close{
+    position: absolute;
+    bottom: 0px;
+    right: 0px;
+    background: black;
+    color: white;
+    border-radius: 50%;
+    height: 20px;
+    width: 20px;
+    text-align: center;
+    padding: 1px;
+    top: -10px;
+    right: -10px;
+    box-shadow: var(--box-shadow);
+    cursor: pointer;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+
+
+    
+    
+
+
+
+
+/* hiddens */
+.hidden{
+    display: none;
+}
+
+#calendar{
+    display: none;
+}

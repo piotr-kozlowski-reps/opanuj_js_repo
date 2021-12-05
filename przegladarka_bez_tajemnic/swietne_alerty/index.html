@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>swietne-alerty</title>
+    <link
+      href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css"
+    />
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body class="bg-gray-900 p-12 flex-col justify-center w-800">
+    <div class="-m-2 text-center" id="alerts-holder">
+      <!-- <div class="p-2">
+      <div class="inline-flex items-center bg-white leading-none text-red-600 rounded-full p-2 shadow text-teal text-sm">
+        <span class="inline-flex bg-red-600 text-white rounded-full h-6 px-3 justify-center items-center">Error</span>
+        <span class="inline-flex px-2">Coś totalnie poszło nie tak.</span>
+      </div>
+    </div>
+    
+    <div class="p-2">
+      <div class="inline-flex items-center bg-white leading-none text-yellow-600 rounded-full p-2 shadow text-sm">
+        <span class="inline-flex bg-yellow-600 text-white rounded-full h-6 px-3 justify-center items-center text-">Warning</span>
+        <span class="inline-flex px-2">Uważaj! To co robisz, nie jest ok!</span>
+      </div>
+    </div>
+    
+    <div class="p-2">
+      <div class="inline-flex items-center bg-white leading-none text-green-600 rounded-full p-2 shadow text-teal text-sm">
+        <span class="inline-flex bg-green-600 text-white rounded-full h-6 px-3 justify-center items-center">Success</span>
+        <span class="inline-flex px-2">Cudownie! Działaj dalej :)</span>
+      </div>
+    </div> -->
+    </div>
+
+    <div
+      class="
+        bg-white
+        overflow-hidden
+        rounded-md
+        p-30
+        flex-col
+        items-center
+        w-full
+        text-center
+        border-t border-grey
+        p-4
+        pin-b
+        mt-10
+      "
+    >
+      <form class="form bg-gray-100">
+        <label for="alerttype" class="p-2 text-sm">
+          wpisz typ alertu(error/warning/success):
+          <input
+            class="
+              form__input
+              p-2
+              bg-white
+              m-2
+              mt-1
+              mb-3
+              border-solid
+              rounded-lg
+              border-2
+              w-60
+              mr-5
+            "
+            type="text"
+            id="alerttype"
+            name="alerttype"
+            placeholder="wpisz typ alertu"
+          />
+        </label>
+        <!-- <p class="type-validation hidden">masz wybór jedynie między "error" "warning" i "success"</p> -->
+
+        <label for="message" class="p-2 text-sm">
+          wiadomość:
+          <input
+            class="
+              form__input
+              p-2
+              bg-white
+              m-2
+              mt-1
+              mb-3
+              border-solid
+              rounded-lg
+              border-2
+              w-60
+              mr-5
+            "
+            type="text"
+            id="message"
+            name="message"
+            placeholder="wpisz wiadomość"
+          />
+        </label>
+        <!-- <p class="message-validation hidden">wiadomość nie może być pusta</p> -->
+
+        <button
+          id="form__button"
+          class="
+            inline-flex
+            bg-blue-600
+            text-white
+            rounded-full
+            h-6
+            px-5
+            py-5
+            justify-center
+            items-center
+            w-40
+          "
+        >
+          WYŚLIJ ALERT
+        </button>
+      </form>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/js/all.min.js"></script>
+    <script src="./index.js"></script>
+  </body>
+</html>

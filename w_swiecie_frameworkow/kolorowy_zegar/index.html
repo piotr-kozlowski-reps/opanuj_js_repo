@@ -1,0 +1,26 @@
+<html>
+
+<head>
+	<title>Inline editor</title>
+	<link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="./style.css">
+        <!-- <script src="https://cdn.jsdelivr.net/npm/vue@2.6.11"></script> -->
+        <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+  <style>
+    .clock { font-family: lato, sans-serif; text-shadow: 2px 2px 0 #9b2c2c; }
+  </style>
+
+</head>
+
+<body class="h-screen">
+
+	<!-- <div id="app" class="h-screen flex justify-center items-center bg-red-700"> -->
+    <div id="app" class="h-screen flex justify-center items-center" :class="colorClass">
+    <colorful-clock passedcolor="bg-red-700" @colorclass='updateColor'></colorful-clock>
+	</div>
+
+<script src="./colors.js"></script>  
+<script src="./index.js"></script>
+</body>
+
+</html>

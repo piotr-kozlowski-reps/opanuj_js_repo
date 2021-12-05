@@ -1,0 +1,3 @@
+body { background: rgb(27,80,122); background: radial-gradient(circle, rgba(27,80,122,1) 0%, rgba(12,33,50,1) 100%); }
+.eye-left { left: 10px; }
+.eye-left .dot { top: 30px; left: 25px; }

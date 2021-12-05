@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://unpkg.com/tailwindcss@0.3.0/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body class="h-screen overflow-hidden flex items-center justify-center flex-col" style="background: #edf2f7;">
+    <div class="max-w-xl mx-auto my-4 pb-4">	
+        
+	<div class="flex pb-3">
+		<div class="flex-1">
+		</div>
+
+		<div class="flex-1">
+			<div class="w-10 h-10 bg-green mx-auto rounded-full text-lg text-white flex items-center" id="num1_circle">
+				<span class="text-white text-center w-full"><i class="fa fa-check w-full fill-current white"></i></span>
+			</div>
+		</div>
+
+
+		<div class="w-1/6 align-center items-center align-middle content-center flex">
+			<div class="w-full bg-grey-light rounded items-center align-middle align-center flex-1">
+			 	<div class="bg-green-light text-xs leading-none py-1 text-center text-grey-darkest rounded " style="width: 100%" id="num1_line"></div>
+			</div>
+		</div>
+	
+		
+		<div class="flex-1">
+			<div class="w-10 h-10 bg-green mx-auto rounded-full text-lg text-white flex items-center" id="num2_circle">
+				<span class="text-white text-center w-full"><i class="fa fa-check w-full fill-current white"></i></span>
+			</div>
+		</div>
+	
+		<div class="w-1/6 align-center items-center align-middle content-center flex">
+			<div class="w-full bg-grey-light rounded items-center align-middle align-center flex-1">
+			 	<div class="bg-green-light text-xs leading-none py-1 text-center text-grey-darkest rounded " style="width: 20%" id="num2_line"></div>
+			</div>
+		</div>
+	
+		<div class="flex-1">
+			<div class="w-10 h-10 bg-white border-2 border-grey-light mx-auto rounded-full text-lg text-white flex items-center" id="num3_circle">
+				<span class="text-grey-darker text-center w-full">3</span>
+			</div>
+		</div>
+	
+	
+		<div class="w-1/6 align-center items-center align-middle content-center flex">
+			<div class="w-full bg-grey-light rounded items-center align-middle align-center flex-1">
+			 	<div class="bg-green-light text-xs leading-none py-1 text-center text-grey-darkest rounded " style="width: 0%" id="num3_line"></div>
+			</div>
+		</div>
+
+
+		<div class="flex-1">
+			<div class="w-10 h-10 bg-white border-2 border-grey-light mx-auto rounded-full text-lg text-white flex items-center" id="num4_circle">
+				<span class="text-grey-darker text-center w-full">4</span>
+			</div>
+		</div>
+	
+	
+		<div class="flex-1">
+		</div>		
+	</div>
+	
+	<div class="flex text-xs content-center text-center">
+		<div class="w-1/4">
+			Koszyk
+		</div>
+		
+		<div class="w-1/4">
+			Dane osobowe
+		</div>
+		
+		<div class="w-1/4 ">
+			Dostawa
+		</div>
+		
+		<div class="w-1/4">
+			Potwierdzenie
+		</div>			
+	</div>
+</div>
+<div>
+ <button class="bg-transparent hover:bg-red text-red-dark font-semibold hover:text-white py-2 px-4 border border-red hover:border-transparent rounded mr-4" id="wroc_button">
+    Wróć
+</button>
+<button class="bg-transparent hover:bg-green text-green-dark font-semibold hover:text-white py-2 px-4 border border-green hover:border-transparent rounded" id="dalej_button">
+    Dalej
+</button>
+</div>
+
+<script src="./index.js"></script>
+</body>
+</html>

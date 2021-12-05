@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>nawyki</title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" integrity="sha384-gfdkjb5BdAXd+lj+gudLWI+BXq4IuLW5IT+brZEZsLFm++aCMlF1V92rMkPaX4PP" crossorigin="anonymous">
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+
+    <div class="modal" id="modal1">
+        <p>Czy na pewno chcesz zastosować pełen odwyk swego nawyku i zacząć nowy nawyk po odwyku?</p>
+        <div class="modal-container">
+            <div><button id="modal-ok">OK</button></div>
+            <div><button id="modal-cancel">WRÓĆ</button></div>
+
+        </div> 
+    </div>
+
+<div class="container">
+
+    <section id="form">
+        <form>
+            <div class="form-group>
+                <label for="nawyk">
+                    <p>Nazwa nawyku jaki chcesz osiągnąć</p> 
+                    <input type="text" class="nawyk" placeholder="nazwa nawyku">
+                </label>
+                <p class="name-validation validation hidden">Nawyk musi mieć swoją nazwę.</p>
+                </div>
+                <button type="submit">WYŚLIJ</button>
+        </form>
+    </section>
+
+    <section class="hidden" id="calendar">
+
+        <div class="calendar-title">
+            <div class="calendar-title-container">
+                <div>
+                    <p>Postępy nawyku:</p>
+                    <p><span class="nawyk_title">Nauka programowania</span><i class="far fa-times-circle"></i></p> 
+                </div>
+            </div>
+            <div class="border"></div>
+        </div>
+
+        <div class="calendar-tabs">
+            <div id="previous"><i class="far fa-caret-square-left"></i></div>
+            
+            <div class="month hidden" id="month1-column"></div>
+            <div class="month hidden" id="month2-column"></div>
+            <div class="month hidden" id="month3-column"></div>
+
+            <div id="next"><i class="far fa-caret-square-right"></i></div>
+        </div>
+
+
+    </section>
+
+</div>
+
+
+
+    
+
+
+
+<script type="text/javascript" src="./index.js"></script>
+<script type="text/javascript" src="./components/DayBrick.js"></script>
+<script type="text/javascript" src="./components/MonthBrick.js"></script>
+<script type="text/javascript" src="./app-storage.js"></script>
+<script type="text/javascript" src="./app-repository.js"></script>
+<script type="text/javascript" src="./components/MonthResumeBrick.js"></script>
+</body>
+</html>

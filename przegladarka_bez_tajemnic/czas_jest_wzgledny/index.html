@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://unpkg.com/tailwindcss@1.0.4/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="./style.css">
+</head>
+
+<body class="h-screen overflow-hidden flex items-center justify-center" style="background: #edf2f7;">
+    <div class="custom-number-input h-10 w-40">
+        <label for="custom-input-number" class="w-full text-gray-700 text-sm font-semibold">Licznik czasu
+        </label>
+        <div class="flex flex-row h-10 w-full rounded-lg relative bg-transparent mt-1 mb-4">
+            <input type="number" class="outline-none focus:outline-none text-center w-full bg-gray-300 font-semibold text-md  focus:text-black  md:text-basecursor-default flex items-center text-gray-700  outline-none" name="custom-input-number" value="0" disabled id="licznik"></input>
+        </div>
+        <label for="custom-input-number" class="w-full text-gray-700 text-sm font-semibold">Mnożnik
+        </label>
+        <div class="flex flex-row h-10 w-full rounded-lg relative bg-transparent mt-1 mb-4">
+            <button data-action="decrement" class=" bg-gray-300 text-gray-600 hover:text-gray-700 hover:bg-gray-400 h-full w-20 rounded-l cursor-pointer outline-none" id="minus">
+                <span class="m-auto text-2xl font-thin">−</span>
+            </button>
+            <input type="number" class="outline-none focus:outline-none text-center w-full bg-gray-300 font-semibold text-md hover:text-black focus:text-black  md:text-basecursor-default flex items-center text-gray-700  outline-none" name="custom-input-number" value="0" id="multipier-input"></input>
+            <button data-action="increment" class="bg-gray-300 text-gray-600 hover:text-gray-700 hover:bg-gray-400 h-full w-20 rounded-r cursor-pointer" id="plus">
+                <span class="m-auto text-2xl font-thin">+</span>
+            </button>
+        </div>
+        <div class="flex flex-row">
+            <button class="bg-transparent hover:bg-red text-red-dark font-semibold  py-2 px-4 border border-red hover:border-red rounded mr-4"  id="stop">
+                Stop
+            </button>
+            <button class="bg-transparent hover:bg-green text-green-dark font-semibold  py-2 px-4 border border-green hover:border-green rounded" id="start">
+                Start
+            </button>
+        </div>
+    </div>
+
+    <script src="./index.js"></script>
+</body>
+
+</html>
