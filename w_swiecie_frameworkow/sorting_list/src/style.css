@@ -1,0 +1,36 @@
+h1,
+p {
+  font-family: Lato;
+}
+
+.tr-height {
+  height: 50px;
+}
+
+/* pageAnimation */
+/* .animate-trs {
+  transform: translateX(-100px);
+  animation: moving 400ms forwards ease-in-out;
+} */
+
+/* keyFrames */
+/* @keyframes moving {
+  to {
+    transform: translateX(0);
+  }
+} */
+
+/* .fade-enter {
+  opacity: 0;
+}
+.fade-enter-active {
+  opacity: 1;
+  transition: opacity 200ms;
+}
+.fade-exit {
+  opacity: 1;
+}
+.fade-exit-active {
+  opacity: 0;
+  transition: opacity 200ms;
+} */
