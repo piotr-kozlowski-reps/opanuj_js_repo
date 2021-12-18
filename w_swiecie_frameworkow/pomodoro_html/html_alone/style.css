@@ -1,0 +1,264 @@
+:root {
+  --background-color-var: #d3d0c4;
+  --green-main: #2f9a5a;
+  --green-light: #6abb8b;
+  --radius-main: 20px;
+  --separation-line: #eceae0;
+  --speed: 0.2s;
+}
+
+@import url("https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@300;500;600&display=swap");
+
+/* reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  background-color: var(--background-color-var);
+  font-family: "Barlow Semi Condensed", sans-serif;
+  color: #fff;
+  height: 100%;
+  width: 100%;
+}
+a {
+  text-decoration: none;
+  color: #fff;
+}
+
+li {
+  list-style: none;
+}
+
+.container {
+  /* background-color: red; */
+  width: 1100px;
+  overflow: auto;
+  padding: 0 40px;
+  margin: auto;
+}
+
+.formatter {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+}
+
+.header {
+  height: 60px;
+}
+
+.main {
+  flex: auto;
+  overflow: auto;
+}
+
+.footer {
+  height: 60px;
+}
+
+/* navi */
+#nav-logo {
+  color: var(--green-main);
+}
+
+#navbar .navi-main {
+  display: flex;
+  justify-content: space-between;
+  align-content: center;
+  height: 60px;
+  align-items: center;
+  border-bottom: 1px var(--separation-line) solid;
+}
+
+#navbar ul {
+  display: flex;
+}
+
+#navbar ul li a {
+  margin: 0 1rem;
+  padding: 0 0.25rem;
+  font-weight: 300;
+  border-bottom: 2px solid rgba(47, 154, 90, 0.3);
+  transition: all var(--speed);
+}
+
+#navbar ul li a:hover {
+  border-color: var(--green-main);
+  font-weight: 600;
+}
+
+.text-base {
+  font-weight: 300;
+  font-size: 1.4rem;
+}
+
+.text-bold {
+  font-weight: 600;
+  font-size: 1.4rem;
+}
+
+/* main */
+.main-centered {
+  /* background-color: red; */
+  position: relative;
+  /* margin: auto; */
+  height: 100vh;
+}
+
+/* counter */
+#counter {
+  /* position: absolute; */
+  width: 526px;
+  height: 433px;
+  margin-left: 80px;
+  margin-top: 80px;
+  background-color: var(--green-main);
+  border-radius: var(--radius-main);
+}
+
+#counter .counter-nav {
+  height: 60px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0 60px;
+}
+
+#counter .counter-link {
+  transition: all var(--speed);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+#counter .counter-link:hover {
+  border-color: #fff;
+}
+
+#counter .clock {
+  margin-left: 60px;
+  margin-top: 10px;
+}
+
+#counter .minutes {
+  font-weight: 300;
+  font-size: 10rem;
+  letter-spacing: -0.5rem;
+}
+
+#counter .seconds {
+  font-weight: 300;
+  font-size: 8rem;
+  letter-spacing: -0.5rem;
+}
+
+#counter .start-stop {
+  margin-right: 160px;
+  display: flex;
+  justify-content: end;
+}
+
+#counter .capital {
+  font-weight: 600;
+  font-size: 2.1rem;
+}
+
+#counter .pause {
+  color: var(--green-light);
+}
+
+#counter a {
+  margin: 0 0.11rem;
+  /* padding: 0 0.25rem; */
+  /* font-weight: 300; */
+  border-bottom: 2px solid rgba(255, 255, 255, 0.3);
+  transition: all var(--speed);
+}
+
+#counter a:hover {
+  border-color: #fff;
+}
+
+#counter .task-info {
+  margin-top: 28px;
+  margin-right: 160px;
+  display: flex;
+  justify-content: end;
+}
+
+#counter .title {
+  font-weight: 600;
+  font-size: 1.5rem;
+  display: flex;
+  justify-content: end;
+}
+
+#counter .thin-text {
+  font-weight: 300;
+}
+
+#counter .current-task {
+  font-weight: 300;
+  font-size: 1.2rem;
+}
+
+/* tasks */
+#tasks {
+  position: absolute;
+  background-color: #fff;
+  border-radius: var(--radius-main);
+  width: 520px;
+  top: 260px;
+  left: 480px;
+}
+
+#tasks .title {
+  padding-top: 5px;
+  margin-right: 412px;
+  text-align: end;
+  color: #000;
+}
+
+#tasks .task-box {
+  margin: 20px 40px;
+  padding: 14px;
+  background-color: var(--green-main);
+  border-radius: var(--radius-main);
+  display: flex;
+  justify-content: space-between;
+  align-content: center;
+  align-items: center;
+}
+
+#tasks .task-box .name {
+  font-weight: 300;
+  font-size: 1.2rem;
+}
+
+#tasks .task-box .controls {
+  display: flex;
+}
+
+#tasks .task-box .controls a {
+  margin: 0 0.3rem;
+  font-weight: 300;
+  border-bottom: 2px solid rgba(255, 255, 255, 0.3);
+  transition: all var(--speed);
+}
+
+#tasks .task-box .controls a:hover {
+  border-color: #fff;
+}
+
+/* footer */
+.footer {
+  text-align: center;
+}
+
+.footer .footer-text {
+  border-top: 1px var(--separation-line) solid;
+  padding-top: 14px;
+}

@@ -1,0 +1,85 @@
+.task-box {
+  margin: 20px 40px;
+  padding: 14px;
+  background-color: var(--green-main);
+  border-radius: var(--radius-main);
+}
+
+/* .task-box::after {
+  content: "\A";
+  white-space: pre;
+  color: aqua;
+} */
+
+form {
+  display: flex;
+  justify-content: space-between;
+  align-content: center;
+  align-items: center;
+}
+
+.task-box .name {
+  font-weight: 600;
+  font-size: 1.2rem;
+}
+
+.task-box .controls {
+  display: flex;
+}
+
+form button {
+  cursor: pointer;
+  margin: 0 0.3rem;
+  font-weight: 300;
+  color: #fff;
+  border-style: none;
+  background-color: var(--green-main);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+  transition: all var(--speed);
+}
+
+form button:hover {
+  border-color: #fff;
+}
+
+form button:disabled,
+form button:disabled:hover,
+form button:disabled:active {
+  color: var(--green-light);
+  transition: none;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+  cursor: not-allowed;
+}
+
+form {
+  width: 100%;
+}
+
+form input {
+  border: none;
+  background-color: var(--green-main);
+  padding: 0.1rem;
+  color: #fff;
+  font-weight: 600;
+  font-size: 1rem;
+  outline: none;
+  width: 80%;
+  border-bottom: 1px solid var(--green-main);
+  transition: var(--speed);
+}
+
+form input:focus {
+  border-bottom: 1px solid #fff;
+}
+
+::placeholder {
+  color: #fff;
+  font-weight: 600;
+  font-size: 1rem;
+}
+
+p {
+  font-weight: 600;
+  font-size: 0.75rem;
+  color: #000;
+}

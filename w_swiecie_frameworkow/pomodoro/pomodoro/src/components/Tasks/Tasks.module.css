@@ -1,0 +1,63 @@
+/* tasks */
+#tasks {
+  position: absolute;
+  background-color: #fff;
+  border-radius: var(--radius-main);
+  width: 520px;
+  top: 260px;
+  left: 480px;
+  margin-bottom: 1rem;
+}
+
+#tasks .title {
+  padding-top: 14px;
+  margin-right: 394px;
+  text-align: end;
+  color: #000;
+}
+
+#tasks .task-box {
+  margin: 20px 40px;
+  padding: 14px;
+  background-color: var(--green-main);
+  border-radius: var(--radius-main);
+  display: flex;
+  justify-content: space-between;
+  align-content: center;
+  align-items: center;
+}
+
+#tasks .task-box .name {
+  font-weight: 600;
+  font-size: 1.2rem;
+}
+
+#tasks .task-box .controls {
+  display: flex;
+}
+
+#tasks .task-box .controls .a-link {
+  cursor: pointer;
+  margin: 0 0.3rem;
+  font-weight: 300;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+  transition: all var(--speed);
+}
+
+#tasks .task-box .controls .a-link:hover {
+  border-color: #fff;
+}
+
+.pomodoros-amount {
+  font-size: 0.75rem;
+  font-weight: 300;
+}
+
+.hr-line {
+  border: 1px solid var(--background-color-var);
+  margin: 0 40px;
+}
+
+.input-placement {
+  width: 100%;
+}

@@ -1,0 +1,11 @@
+/* footer */
+.footer {
+  height: 40px;
+  text-align: center;
+  margin-top: 20px;
+}
+
+.footer .footer-text {
+  border-top: 1px var(--separation-line) solid;
+  padding-top: 14px;
+}

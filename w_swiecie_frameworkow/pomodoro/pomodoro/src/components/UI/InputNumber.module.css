@@ -1,0 +1,33 @@
+form {
+  width: 100%;
+}
+
+input {
+  border: none;
+  background-color: red;
+  /* background-color: var(--green-light); */
+  padding: 0.4rem;
+  color: #fff;
+  font-weight: 600;
+  font-size: 1rem;
+  outline: none;
+  width: 20%;
+  /* border-bottom: 1px solid var(--green-main); */
+  transition: var(--speed);
+}
+
+input:focus {
+  background-color: var(--green-main);
+}
+
+::placeholder {
+  color: #fff;
+  font-weight: 600;
+  font-size: 1rem;
+}
+
+/* .label-input {
+  font-weight: 600;
+  font-size: 0.75rem;
+  color: #000;
+} */

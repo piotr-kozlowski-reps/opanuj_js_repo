@@ -1,0 +1,237 @@
+:root {
+  --background-color-var: #d3d0c4;
+  --green-main: #2f9a5a;
+  --green-light: #6abb8b;
+  --radius-main: 20px;
+  --speed: 0.2s;
+}
+
+@import url("https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@300;500;600&display=swap");
+
+/* reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  background-color: var(--background-color-var);
+  font-family: "Barlow Semi Condensed", sans-serif;
+  color: #fff;
+  height: 100%;
+  width: 100%;
+}
+a {
+  text-decoration: none;
+  color: #fff;
+}
+
+li {
+  list-style: none;
+}
+main {
+  height: 100%;
+  max-height: 100%;
+}
+
+/* utility */
+.container {
+  background-color: red;
+  max-width: 1100px;
+  margin: auto;
+  overflow: auto;
+  padding: 0 40px;
+}
+
+/* navi */
+#nav-logo {
+  color: var(--green-main);
+}
+
+#navbar .navi-main {
+  display: flex;
+  justify-content: space-between;
+  align-content: center;
+  height: 60px;
+  align-items: center;
+  border-bottom: 1px #eceae0 solid;
+}
+
+#navbar ul {
+  display: flex;
+}
+
+#navbar ul li a {
+  margin: 0 1rem;
+  padding: 0 0.25rem;
+  font-weight: 300;
+  border-bottom: 4px solid rgba(47, 154, 90, 0.7);
+  transition: all var(--speed);
+  background-color: green;
+}
+
+#navbar ul li a:hover {
+  border-color: var(--green-main);
+  font-weight: 600;
+}
+
+.text-base {
+  font-weight: 300;
+  font-size: 1.4rem;
+}
+
+.text-bold {
+  font-weight: 600;
+  font-size: 1.4rem;
+}
+
+/* counter */
+#counter {
+  position: relative;
+  /* background-image: url("podklad_counter.jpg"); */
+  width: 526px;
+  height: 433px;
+  margin-left: 120px;
+  margin-top: 80px;
+  background-color: var(--green-main);
+  border-radius: var(--radius-main);
+}
+
+#counter .counter-nav {
+  height: 60px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0 60px;
+}
+
+#counter .counter-link {
+  transition: all var(--speed);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+#counter .counter-link:hover {
+  border-color: #fff;
+}
+
+#counter .clock {
+  margin-left: 60px;
+  margin-top: 10px;
+}
+
+#counter .minutes {
+  font-weight: 300;
+  font-size: 10rem;
+  letter-spacing: -0.5rem;
+}
+
+#counter .seconds {
+  font-weight: 300;
+  font-size: 8rem;
+  letter-spacing: -0.5rem;
+}
+
+#counter .start-stop {
+  margin-right: 160px;
+  display: flex;
+  justify-content: end;
+}
+
+#counter .capital {
+  font-weight: 600;
+  font-size: 2.1rem;
+}
+
+#counter .pause {
+  color: var(--green-light);
+}
+
+#counter .task-info {
+  margin-top: 28px;
+  margin-right: 160px;
+  display: flex;
+  justify-content: end;
+}
+
+#counter .title {
+  font-weight: 600;
+  font-size: 1.5rem;
+  display: flex;
+  justify-content: end;
+}
+
+#counter .thin-text {
+  font-weight: 300;
+}
+
+#counter .current-task {
+  font-weight: 300;
+  font-size: 1.2rem;
+}
+
+/* tasks */
+#tasks {
+  position: absolute;
+  width: 520px;
+  /* height: 500px; */
+  top: 274px;
+  left: 460px;
+  margin-left: 120px;
+  margin-top: 80px;
+  background-color: #fff;
+  border-radius: var(--radius-main);
+}
+
+#tasks .title {
+  padding-top: 5px;
+  margin-right: 412px;
+  text-align: end;
+  color: #000;
+}
+
+#tasks .task-box {
+  margin: 20px 40px;
+  padding: 14px;
+  background-color: var(--green-main);
+  border-radius: var(--radius-main);
+  display: flex;
+  justify-content: space-between;
+  align-content: center;
+  align-items: center;
+}
+
+#tasks .task-box .name {
+  font-weight: 300;
+  font-size: 1.2rem;
+}
+
+#tasks .task-box .controls {
+  display: flex;
+}
+
+#tasks .task-box .controls a {
+  margin: 0 0.3rem;
+  font-weight: 300;
+  border-bottom: 2px transparent solid;
+  transition: all var(--speed);
+}
+
+#tasks .task-box .controls a:hover {
+  border-color: #fff;
+}
+
+footer {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 60px;
+  text-align: center;
+  border-top: 1px #eceae0 solid;
+}
+
+footer .footer-text {
+  padding-top: 14px;
+}

@@ -1,0 +1,16 @@
+.minutes {
+  font-weight: 300;
+  font-size: 10rem;
+  letter-spacing: -0.5rem;
+}
+
+.seconds {
+  font-weight: 300;
+  font-size: 8rem;
+  letter-spacing: -0.5rem;
+}
+
+.clock {
+  margin-left: 60px;
+  margin-top: 10px;
+}
