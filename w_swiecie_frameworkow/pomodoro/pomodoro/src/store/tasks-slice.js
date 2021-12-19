@@ -41,6 +41,13 @@ const tasksSlice = createSlice({
 
       currentTask.name = action.payload.newValue;
     },
+    // add one pomodoro to Task
+    addPomodoroToTask(state, action) {
+      const currentTask = state.tasks.find(
+        (task) => task.id === action.payload
+      );
+      currentTask.pomodoroAmount++;
+    },
   },
 });
 

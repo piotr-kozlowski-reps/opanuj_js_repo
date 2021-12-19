@@ -12,38 +12,41 @@ const Header = () => {
   //vars
   const dispatch = useDispatch();
 
-  const pomodoroSecondsAmount = useSelector(
-    (state) => state.settings.pomodoroSecondsAmount
-  );
-  const pomodoroInMinutes = pomodoroSecondsAmount / 60;
+  //
+  const pomodoroTimeAmount = useSelector((state) => {
+    return state.settings.pomodoroTimeAmount;
+  });
+  const pomodoroInMinutes = pomodoroTimeAmount.getMinutes();
 
-  const smallBreakSecondsAmount = useSelector(
-    (state) => state.settings.smallBreakSecondsAmount
+  //
+  const shortBreakTimeAmount = useSelector(
+    (state) => state.settings.shortBreakTimeAmount
   );
-  const smallBreakInMinutes = smallBreakSecondsAmount / 60;
+  const shortBreakInMinutes = shortBreakTimeAmount.getMinutes();
 
-  const longBreakSecondsAmount = useSelector(
-    (state) => state.settings.longBreakSecondsAmount
+  //
+  const longBreakTimeAmount = useSelector(
+    (state) => state.settings.longBreakTimeAmount
   );
-  const LongBreakInMinutes = longBreakSecondsAmount / 60;
+  const LongBreakInMinutes = longBreakTimeAmount.getMinutes();
 
   const isModalVisible = useSelector((state) => state.settings.isModalVisible);
 
   //
   //func
   const pomodoroValueChangeHandler = (event) => {
-    const valueInMinutes = parseInt(event.target.value) * 60;
-    dispatch(settingActions.setPomodoroSeconds(valueInMinutes));
+    const valueInMinutes = parseInt(event.target.value);
+    dispatch(settingActions.setPomodoroTimeAmount(valueInMinutes));
   };
 
-  const smallBreakValueChangeHandler = (event) => {
-    const valueInMinutes = parseInt(event.target.value) * 60;
-    dispatch(settingActions.setSmallBreakSeconds(valueInMinutes));
+  const shortBreakValueChangeHandler = (event) => {
+    const valueInMinutes = parseInt(event.target.value);
+    dispatch(settingActions.setShortBreakTimeAmount(valueInMinutes));
   };
 
   const longBreakValueChangeHandler = (event) => {
-    const valueInMinutes = parseInt(event.target.value) * 60;
-    dispatch(settingActions.setLongBreakSeconds(valueInMinutes));
+    const valueInMinutes = parseInt(event.target.value);
+    dispatch(settingActions.setLongBreakTimeAmount(valueInMinutes));
   };
 
   const onHideModalHandler = () => {
@@ -111,8 +114,8 @@ const Header = () => {
                 type="number"
                 min="1"
                 max="120"
-                value={smallBreakInMinutes}
-                onChange={smallBreakValueChangeHandler}
+                value={shortBreakInMinutes}
+                onChange={shortBreakValueChangeHandler}
               />
             </div>
 

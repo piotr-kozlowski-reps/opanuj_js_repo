@@ -27,6 +27,12 @@
   align-items: center;
 }
 
+#tasks .tasks-container .task-box:first-child {
+  border-left: 6px solid #000;
+  margin-left: 20px;
+  margin-right: 60px;
+}
+
 #tasks .task-box .name {
   font-weight: 600;
   font-size: 1.2rem;

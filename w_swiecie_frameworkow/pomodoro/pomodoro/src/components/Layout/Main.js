@@ -7,100 +7,159 @@ import classes from "./Main.module.css";
 
 import { currentPhaseChoice } from "../../store/settings-slice";
 import { settingActions } from "../../store/settings-slice";
+import { tasksActions } from "../../store/tasks-slice";
 
 const Main = () => {
-  const dispatch = useDispatch();
-  const [timeAmountInSeconds, setTimeAmountInSeconds] = useState(0);
-  const [timer, setTimer] = useState(new Date());
-  const [isCounting, setIsCounting] = useState(false);
   //
   //vars
-  const pomodoroSeconds = useSelector(
-    (state) => state.settings.pomodoroSecondsAmount
+  const dispatch = useDispatch();
+  const [timeAmount, setTimeAmount] = useState(new Date());
+  const [isCounting, setIsCounting] = useState(false);
+  const [isPaused, setIsPaused] = useState(false);
+  const [isResetVisible, setIsResetVisible] = useState(false);
+
+  const pomodoroTimeAmount = useSelector(
+    (state) => state.settings.pomodoroTimeAmount
   );
-  const smallBreakSeconds = useSelector(
-    (state) => state.settings.smallBreakSecondsAmount
+  const shortBreakTimeAmount = useSelector(
+    (state) => state.settings.shortBreakTimeAmount
   );
-  const longBreakSeconds = useSelector(
-    (state) => state.settings.longBreakSecondsAmount
+  const longBreakTimeAmount = useSelector(
+    (state) => state.settings.longBreakTimeAmount
   );
   const timerChosen = useSelector((state) => state.settings.timerChosen);
   const tasks = useSelector((state) => state.tasks.tasks);
 
   //
   //effects
+  //choosing of Timer
   useEffect(() => {
     switch (timerChosen) {
       case currentPhaseChoice.POMODORO:
-        setTimeAmountInSeconds(pomodoroSeconds);
+        setTimeAmount(pomodoroTimeAmount);
         break;
 
-      case currentPhaseChoice.SMALL_BREAK:
-        setTimeAmountInSeconds(smallBreakSeconds);
+      case currentPhaseChoice.SHORT_BREAK:
+        setTimeAmount(shortBreakTimeAmount);
         break;
 
       case currentPhaseChoice.LONG_BREAK:
-        setTimeAmountInSeconds(longBreakSeconds);
+        setTimeAmount(longBreakTimeAmount);
         break;
 
       default:
-        setTimeAmountInSeconds(pomodoroSeconds);
+        setTimeAmount(pomodoroTimeAmount);
     }
-  }, [timerChosen, pomodoroSeconds, smallBreakSeconds, longBreakSeconds]);
+  }, [
+    timerChosen,
+    pomodoroTimeAmount,
+    shortBreakTimeAmount,
+    longBreakTimeAmount,
+  ]);
 
-  //handlers
-  const switchToPomodoroHandler = () => {
-    dispatch(settingActions.setTimerToPomodoro());
-  };
-
-  const switchToSmallBreakHandler = () => {
-    dispatch(settingActions.setTimerToSmallBreak());
-  };
-
-  const switchToLongBreakHandler = () => {
-    dispatch(settingActions.setTimerToLongBreak());
-  };
-
-  // const startHandler = () => {
-  //   setIsCounting(true);
-
-  //   const countDown = () => {
-  //     if (timeAmountInSeconds === 0) {
-  //       setIsCounting(false);
-  //       console.log("finished counting");
-  //       clearInterval(counter);
-  //       //TODO: finished counting application
-  //       return;
-  //     }
-  //     setTimeAmountInSeconds((lastState) => lastState - 1);
-  //   };
-  //   const counter = setInterval(countDown, 1000);
-
-  //   console.log("startHandler");
-  // };
-
-  const startHandler = () => {
-    setIsCounting(true);
-
+  //counting down in Timer
+  useEffect(() => {
     const countDown = () => {
-      if (timeAmountInSeconds === 0) {
-        // setIsCounting(false);
-        // console.log("finished counting");
-        // clearInterval(counter);
-        // //TODO: finished counting application
-        // return;
+      if (isPaused) {
+        clearInterval(counter);
       }
+      if (isCounting) {
+        setTimeAmount((lastState) => {
+          return new Date(lastState.getTime() - 1000);
+        });
+      }
+      if (timeAmount.getTime() === 0) {
+        console.log("koniec liczenia");
+        clearInterval(counter);
 
-      setTimeAmountInSeconds((lastState) => lastState - 1);
+        if (tasks.length === 0) {
+          resetHandler();
+          return;
+        }
+        dispatch(tasksActions.addPomodoroToTask(tasks[0].id));
+
+        //TODO: dokoncz logike - dodaj 1 pomodoro to aktualnego zadania
+        resetHandler();
+      }
     };
     const counter = setInterval(countDown, 1000);
 
-    console.log("startHandler");
+    return () => {
+      clearInterval(counter);
+    };
+  }, [isCounting, isPaused, timeAmount]);
+
+  //should reset be visible
+  useEffect(() => {
+    if (
+      timerChosen === currentPhaseChoice.POMODORO &&
+      timeAmount.getTime() === pomodoroTimeAmount.getTime()
+    ) {
+      setIsResetVisible(false);
+    } else if (
+      timerChosen === currentPhaseChoice.SHORT_BREAK &&
+      timeAmount.getTime() === shortBreakTimeAmount.getTime()
+    ) {
+      setIsResetVisible(false);
+    } else if (
+      timerChosen === currentPhaseChoice.LONG_BREAK &&
+      timeAmount.getTime() === longBreakTimeAmount.getTime()
+    ) {
+      setIsResetVisible(false);
+    } else {
+      setIsResetVisible(true);
+    }
+  }, [
+    timeAmount,
+    pomodoroTimeAmount,
+    shortBreakTimeAmount,
+    longBreakTimeAmount,
+    timerChosen,
+  ]);
+
+  //
+  //handlers
+  const switchToPomodoroHandler = () => {
+    if (timerChosen === currentPhaseChoice.POMODORO) return;
+    setIsCounting(false);
+    dispatch(settingActions.setTimerToPomodoro());
+  };
+
+  const switchToShortBreakHandler = () => {
+    if (timerChosen === currentPhaseChoice.SHORT_BREAK) return;
+    setIsCounting(false);
+    dispatch(settingActions.setTimerToShortBreak());
+  };
+
+  const switchToLongBreakHandler = () => {
+    if (timerChosen === currentPhaseChoice.LONG_BREAK) return;
+    setIsCounting(false);
+    setIsPaused(false);
+    dispatch(settingActions.setTimerToLongBreak());
+  };
+
+  const startHandler = () => {
+    setIsCounting(true);
+    setIsPaused(false);
   };
 
   const pauseHandler = () => {
+    setIsPaused(true);
     setIsCounting(false);
-    console.log("pauseHandler");
+  };
+
+  const resetHandler = () => {
+    setIsCounting(false);
+    setIsPaused(false);
+
+    if (timerChosen === currentPhaseChoice.POMODORO)
+      setTimeAmount(pomodoroTimeAmount);
+
+    if (timerChosen === currentPhaseChoice.SHORT_BREAK)
+      setTimeAmount(shortBreakTimeAmount);
+
+    if (timerChosen === currentPhaseChoice.LONG_BREAK)
+      setTimeAmount(longBreakTimeAmount);
   };
 
   //
@@ -108,10 +167,21 @@ const Main = () => {
   const startClasses = !isCounting
     ? `text-bold ${classes.capital}`
     : `text-bold ${classes.capital} ${classes.disabled}`;
-
   const pauseClasses = isCounting
     ? `text-bold ${classes.capital}`
     : `text-bold ${classes.capital} ${classes.disabled}`;
+  const pomodoroLink =
+    timerChosen === currentPhaseChoice.POMODORO
+      ? `${classes["a-link-active"]}`
+      : `${classes["a-link"]}`;
+  const shortBreakLink =
+    timerChosen === currentPhaseChoice.SHORT_BREAK
+      ? `${classes["a-link-active"]}`
+      : `${classes["a-link"]}`;
+  const longBreakLink =
+    timerChosen === currentPhaseChoice.LONG_BREAK
+      ? `${classes["a-link-active"]}`
+      : `${classes["a-link"]}`;
 
   return (
     <div className={classes.main}>
@@ -120,10 +190,7 @@ const Main = () => {
           <div id={classes.counter}>
             <div className={classes["counter-nav"]}>
               <div className={classes["counter-link"]}>
-                <div
-                  className={classes["a-link"]}
-                  onClick={switchToPomodoroHandler}
-                >
+                <div className={pomodoroLink} onClick={switchToPomodoroHandler}>
                   <span className="text-base">pomod’</span>
                   <span className="text-bold">oro</span>
                 </div>
@@ -131,8 +198,8 @@ const Main = () => {
 
               <div className={classes["counter-link"]}>
                 <div
-                  className={classes["a-link"]}
-                  onClick={switchToSmallBreakHandler}
+                  className={shortBreakLink}
+                  onClick={switchToShortBreakHandler}
                 >
                   <span className="text-bold">short</span>
                   <span className="text-base">break</span>
@@ -141,7 +208,7 @@ const Main = () => {
 
               <div className={classes["counter-link"]}>
                 <div
-                  className={classes["a-link"]}
+                  className={longBreakLink}
                   onClick={switchToLongBreakHandler}
                 >
                   <span className="text-bold">long</span>
@@ -150,7 +217,7 @@ const Main = () => {
               </div>
             </div>
 
-            <Counter currentTime={timeAmountInSeconds} />
+            <Counter currentTime={timeAmount} />
 
             <div className={classes["start-stop"]}>
               <button disabled={isCounting} onClick={startHandler}>
@@ -158,6 +225,9 @@ const Main = () => {
               </button>
               <button disabled={!isCounting} onClick={pauseHandler}>
                 pause
+              </button>
+              <button disabled={!isResetVisible} onClick={resetHandler}>
+                reset
               </button>
             </div>
 
