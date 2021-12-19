@@ -25,6 +25,13 @@
   justify-content: space-between;
   align-content: center;
   align-items: center;
+  transition: .1s;
+  cursor: pointer;
+}
+
+#tasks .task-box:hover{
+  box-shadow: 0 0 3px #000;
+  transform: scale(1.01);
 }
 
 #tasks .tasks-container .task-box:first-child {
