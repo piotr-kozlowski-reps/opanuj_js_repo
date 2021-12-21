@@ -48,6 +48,10 @@ const tasksSlice = createSlice({
       );
       currentTask.pomodoroAmount++;
     },
+    // replace Tasks with update array
+    replaceTasks(state, action){
+      state.tasks = action.payload
+    }
   },
 });
 
