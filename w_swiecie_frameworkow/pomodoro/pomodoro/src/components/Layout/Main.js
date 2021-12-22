@@ -1,16 +1,17 @@
 import React, { useState, useEffect } from "react";
-
-import Tasks from "../Tasks/Tasks";
-import Counter from "../Counter/Counter";
 import { useSelector, useDispatch } from "react-redux";
-// import classes from "./Main.module.css";
 
 import { currentPhaseChoice } from "../../store/settings-slice";
 import { settingActions } from "../../store/settings-slice";
 import { tasksActions } from "../../store/tasks-slice";
+
+import Tasks from "../Tasks/Tasks";
+import Counter from "../Counter/Counter";
 import CounterNavigation from "../Counter/CounterNavigation";
 import PlayPauseRestartNavi from "../Counter/PlayPauseRestartNavi";
 import CurrentTaskInfo from "../Counter/CurrentTaskInfo";
+
+// import classes from "./Main.module.css";
 
 const Main = () => {
   //
