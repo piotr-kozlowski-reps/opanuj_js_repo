@@ -8,8 +8,8 @@ function App() {
   return (
     <Formatter>
       <Header />
-      <Main />
-      <Footer />
+      {/* <Main /> */}
+      {/* <Footer /> */}
     </Formatter>
   );
 }

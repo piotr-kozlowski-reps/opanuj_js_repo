@@ -89,7 +89,7 @@ const Header = () => {
           </nav>
         </div>
       </div>
-
+      {/* 
       {isModalVisible && (
         <Modal onHideCart={onHideModalHandler}>
           <div className={classes["modal-container"]}>
@@ -137,13 +137,10 @@ const Header = () => {
                 close
               </span>
             </div>
-
-            {/* {!isSubmitting && !didSubmit && cartModalContent}
-      {isSubmitting && isSubmittingModalContent}
-      {!isSubmitting && didSubmit && didSubmitModalContent} */}
           </div>
         </Modal>
       )}
+      */}
     </Fragment>
   );
 };
