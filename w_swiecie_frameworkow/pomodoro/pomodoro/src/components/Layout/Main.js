@@ -3,11 +3,14 @@ import React, { useState, useEffect } from "react";
 import Tasks from "../Tasks/Tasks";
 import Counter from "../Counter/Counter";
 import { useSelector, useDispatch } from "react-redux";
-import classes from "./Main.module.css";
+// import classes from "./Main.module.css";
 
 import { currentPhaseChoice } from "../../store/settings-slice";
 import { settingActions } from "../../store/settings-slice";
 import { tasksActions } from "../../store/tasks-slice";
+import CounterNavigation from "../Counter/CounterNavigation";
+import PlayPauseRestartNavi from "../Counter/PlayPauseRestartNavi";
+import CurrentTaskInfo from "../Counter/CurrentTaskInfo";
 
 const Main = () => {
   //
@@ -78,7 +81,6 @@ const Main = () => {
         }
         dispatch(tasksActions.addPomodoroToTask(tasks[0].id));
 
-        //TODO: dokoncz logike - dodaj 1 pomodoro to aktualnego zadania
         resetHandler();
       }
     };
@@ -165,82 +167,35 @@ const Main = () => {
   //
   //classes
   const startClasses = !isCounting
-    ? `text-bold ${classes.capital}`
-    : `text-bold ${classes.capital} ${classes.disabled}`;
+    ? `text-bold capital`
+    : `text-bold capital disabled`;
   const pauseClasses = isCounting
-    ? `text-bold ${classes.capital}`
-    : `text-bold ${classes.capital} ${classes.disabled}`;
-  const pomodoroLink =
-    timerChosen === currentPhaseChoice.POMODORO
-      ? `${classes["a-link-active"]}`
-      : `${classes["a-link"]}`;
-  const shortBreakLink =
-    timerChosen === currentPhaseChoice.SHORT_BREAK
-      ? `${classes["a-link-active"]}`
-      : `${classes["a-link"]}`;
-  const longBreakLink =
-    timerChosen === currentPhaseChoice.LONG_BREAK
-      ? `${classes["a-link-active"]}`
-      : `${classes["a-link"]}`;
+    ? `text-bold capital`
+    : `text-bold capital disabled`;
 
   return (
-    <div className={classes.main}>
+    <div className="main">
       <div className="container">
-        <div className={classes["main-centered"]}>
-          <div id={classes.counter}>
-            <div className={classes["counter-nav"]}>
-              <div className={classes["counter-link"]}>
-                <div className={pomodoroLink} onClick={switchToPomodoroHandler}>
-                  <span className="text-base">pomod’</span>
-                  <span className="text-bold">oro</span>
-                </div>
-              </div>
-
-              <div className={classes["counter-link"]}>
-                <div
-                  className={shortBreakLink}
-                  onClick={switchToShortBreakHandler}
-                >
-                  <span className="text-bold">short</span>
-                  <span className="text-base">break</span>
-                </div>
-              </div>
-
-              <div className={classes["counter-link"]}>
-                <div
-                  className={longBreakLink}
-                  onClick={switchToLongBreakHandler}
-                >
-                  <span className="text-bold">long</span>
-                  <span className="text-base">break</span>
-                </div>
-              </div>
-            </div>
+        <div className="main-centered">
+          <div id="counter">
+            <CounterNavigation
+              timerChosen={timerChosen}
+              onSwitchToPomodoro={switchToPomodoroHandler}
+              onSwitchToShortBreak={switchToShortBreakHandler}
+              onSwitchToLongBreak={switchToLongBreakHandler}
+            />
 
             <Counter currentTime={timeAmount} />
 
-            <div className={classes["start-stop"]}>
-              <button disabled={isCounting} onClick={startHandler}>
-                start
-              </button>
-              <button disabled={!isCounting} onClick={pauseHandler}>
-                pause
-              </button>
-              <button disabled={!isResetVisible} onClick={resetHandler}>
-                reset
-              </button>
-            </div>
+            <PlayPauseRestartNavi
+              onStart={startHandler}
+              onPause={pauseHandler}
+              onReset={resetHandler}
+              isCounting={isCounting}
+              isResetVisible={isResetVisible}
+            />
 
-            <div className={classes["task-info"]}>
-              <div className={classes.start}>
-                <div className={classes.title}>
-                  <span className={classes["thin-text"]}>current</span> task:
-                </div>
-                <div className={classes["current-task"]}>
-                  {tasks.length > 0 ? tasks[0].name : `current task undefined.`}
-                </div>
-              </div>
-            </div>
+            <CurrentTaskInfo tasks={tasks} />
           </div>
 
           <Tasks />

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-import classes from "./Tasks.module.css";
+// import classes from "./Tasks.module.css";
 import { useSelector, useDispatch } from "react-redux";
 import { tasksActions } from "../../store/tasks-slice";
 import AddTask from "./AddTask";
@@ -29,82 +29,84 @@ const Tasks = () => {
   };
 
   const onDragEndHandler = (result) => {
-    const {source, destination} = result;
+    const { source, destination } = result;
 
-    if(destination === null) return;
-    if(destination.droppableId === source.droppableId && destination.index === source.index) return;
-    
+    if (destination === null) return;
+    if (
+      destination.droppableId === source.droppableId &&
+      destination.index === source.index
+    )
+      return;
+
     const currentTasksArray = tasks.slice();
-    const add = tasks[source.index]
+    const add = tasks[source.index];
 
-    currentTasksArray.splice(source.index, 1)
-    currentTasksArray.splice(destination.index, 0, add)
+    currentTasksArray.splice(source.index, 1);
+    currentTasksArray.splice(destination.index, 0, add);
 
-    dispatch(tasksActions.replaceTasks(currentTasksArray))
-  }
+    dispatch(tasksActions.replaceTasks(currentTasksArray));
+  };
 
   //
   //jsx
   return (
-    <div id={classes.tasks}>
-      <div className={`text-bold ${classes.title}`}>tasks:</div>
+    <div id="tasks">
+      <div className="text-bold title">tasks:</div>
 
       <AddTask />
-      {tasks.length > 0 ? <hr className={classes["hr-line"]}></hr> : ""}
+      {tasks.length > 0 ? <hr className="hr-line"></hr> : ""}
 
       <DragDropContext onDragEnd={onDragEndHandler}>
-        <Droppable droppableId='TodosList'>
+        <Droppable droppableId="TodosList">
+          {(provided) => (
+            <div
+              className="tasks-container"
+              ref={provided.innerRef}
+              {...provided.droppableProps}
+            >
+              {tasks.map((task, index) => {
+                return (
+                  <Draggable draggableId={task.id} index={index} key={task.id}>
+                    {(provided) => (
+                      <div
+                        key={task.id}
+                        className="task-box"
+                        index={index}
+                        {...provided.draggableProps}
+                        {...provided.dragHandleProps}
+                        ref={provided.innerRef}
+                      >
+                        <div className="input-placement">
+                          <Input
+                            type="text"
+                            id={task.id}
+                            placeholder={task.name}
+                            value={task.name}
+                            onChange={valueChangeHandler}
+                          />
 
-        {
-          (provided) => (
-             <div className={classes["tasks-container"]} ref={provided.innerRef} {...provided.droppableProps}>
-               {tasks.map((task, index) => {
-                 return (
-                   <Draggable draggableId={task.id} index={index}  key={task.id}>
-
-                     {
-                      (provided) => (
-                        <div key={task.id} className={classes["task-box"]} index={index} {...provided.draggableProps} {...provided.dragHandleProps} ref={provided.innerRef}>
-                     <div className={classes["input-placement"]}>
-                       <Input
-                         type="text"
-                         id={task.id}
-                         placeholder={task.name}
-                         value={task.name}
-                         onChange={valueChangeHandler}
-                       />
-
-                       <div
-                         className={classes["pomodoros-amount"]}
-                       >{`${task.pomodoroAmount} pomod'oros completed.`}</div>
-                     </div>
-                     <div className={classes.controls}>
-                       <div>
-                         <div
-                           className={classes["a-link"]}
-                           onClick={taskDeleteHandler.bind(null, task.id)}
-                         >
-                           delete
-                         </div>
-                       </div>
-                     </div>
-                   </div>
-                      )
-                     }
-                   </Draggable>
-                 );
-               })}
-               {provided.placeholder}
-             </div>
-          )
-        }
-
-
-
-      </Droppable>
+                          <div className="pomodoros-amount">{`${task.pomodoroAmount} pomod'oros completed.`}</div>
+                        </div>
+                        <div className="controls">
+                          <div>
+                            <div
+                              className="a-link"
+                              onClick={taskDeleteHandler.bind(null, task.id)}
+                            >
+                              delete
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    )}
+                  </Draggable>
+                );
+              })}
+              {provided.placeholder}
+            </div>
+          )}
+        </Droppable>
       </DragDropContext>
-
-
     </div>
   );
 };
